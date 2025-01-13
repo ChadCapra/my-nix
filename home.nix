@@ -5,6 +5,7 @@
 
 	imports = [
 		./cli/init.nix
+		./vid/init.nix
 	];
 
 	home.username = userSettings.username;
