@@ -1,4 +1,4 @@
-{ userSettings, ... }:
+{ userSettings, pkgs, ... }:
 
 {
 
@@ -31,5 +31,9 @@
 			alias gs = git status
 			'';
 	};
+
+	home.packages = with pkgs; [
+		tldr
+	];
 
 }
