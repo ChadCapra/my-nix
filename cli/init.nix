@@ -36,21 +36,62 @@
 		enable = true;
 		settings = {
 			add_newline = false;
-			format = "$hostname$directory$git_branch$character";  # Custom prompt format
-				directory = {
-					truncation_length = 3;  # Only show the last 3 directories
-					style = "bold yellow";
-				};
-			git_branch = {
-				format = "[$symbol$branch]($style) ";  # Make Git branch more visible
-				symbol = "🌱 ";  # Change Git branch symbol
+
+# Left side: Directory + Prompt
+			format = "$directory$character";
+
+# Right side: Git, environment info, execution time, and timestamp
+			right_format = "$git_branch$git_status$nodejs$elixir$cmd_duration$time";
+
+# Directory: Show full path from home (~)
+			directory = {
+				truncation_length = 0;
+				truncation_symbol = "…/";
+				home_symbol = "~";
+				style = "blue";
 			};
-			character = {
-				success_symbol = "[➜](bold green) ";  # Green arrow for success
-				error_symbol = "[✗](bold red) ";  # Red X for errors
+
+# Git info: Branch + status
+			git_branch = {
+				symbol = " ";
+				format = " [$symbol$branch]($style)";
+				style = "bold purple";
+			};
+			git_status = {
+				format = "(\\[$all_status$ahead_behind\\]$style)";
+				style = "bold yellow";
+				conflicted = "⚠️";
+				ahead = "⇡";
+				behind = "⇣";
+				diverged = "⇕";
+				untracked = "🆕";
+				stashed = "📦";
+				modified = "✏️";
+				staged = "✔";
+				renamed = "➡";
+				deleted = "❌";
+			};
+
+# Programming environment (only show if relevant)
+			nodejs = { format = " [📦 $version]($style)"; style = "bold green"; };
+			elixir = { format = " [💜 $version]($style)"; style = "bold magenta"; };
+
+# Execution time of last command
+			cmd_duration = {
+				format = " ⏱ $duration";
+				style = "yellow";
+				show_milliseconds = true;
+			};
+
+# Timestamp of when last command finished
+			time = {
+				format = " 🕒 [$time]($style)";
+				style = "bold cyan";
+				disabled = false;
 			};
 		};
 	};
+
 
 	home.packages = with pkgs; [
 		tldr
