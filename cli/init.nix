@@ -24,16 +24,24 @@
 		};
 	};
 
+	programs.starship = {
+		enable = true;
+		settings = {
+			add_newline = false;
+		};
+	};
+
 	programs.nushell = {
 		enable = true;
 		configFile.text = ''
 			alias ll = ls -l
 			alias gs = git status
-			'';
+		'';
 	};
 
 	home.packages = with pkgs; [
 		tldr
+		nodejs
 	];
 
 }
