@@ -81,6 +81,7 @@
 				format = " ⏱ $duration";
 				style = "yellow";
 				show_milliseconds = true;
+				min_time = 0;
 			};
 
 # Timestamp of when last command finished
