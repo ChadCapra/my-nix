@@ -6,15 +6,18 @@
 		./nixvim/init.nix
 	];
 
+	programs.carapace.enable = true;
+	programs.fd.enable = true;
+	programs.fzf.enable = true;
+	programs.ripgrep.enable = true;
 	programs.tmux.enable = true;
+	programs.zoxide.enable = true;
 
 	programs.git = {
 		enable = true;
 		userName = userSettings.fullName;
 		userEmail = userSettings.email;
 	};
-
-	programs.ripgrep.enable = true;
 
 	programs.btop = {
 		enable = true;
@@ -31,8 +34,6 @@
 			alias gs = git status
 		'';
 	};
-
-	programs.carapace.enable = true;
 
 	programs.starship = {
 		enable = true;
@@ -94,7 +95,6 @@
 			};
 		};
 	};
-
 
 	home.packages = with pkgs; [
 		tldr
