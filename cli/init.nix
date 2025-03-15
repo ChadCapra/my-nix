@@ -32,12 +32,14 @@
 		configFile.text = ''
 			alias ll = ls -l
 			alias gs = git status
+		'';
+		extraConfig = ''
+			$env.config.show_banner = false
+			$env.config.edit_mode = 'vi'
 
-			let $config = {
-				filesize_metric: false
-				table_mode: rounded
-				use_ls_colors: true
-			}
+			# Set default editor to Neovim
+			$env.EDITOR = "nvim"
+			$env.VISUAL = "nvim"
 		'';
 	};
 
