@@ -32,6 +32,12 @@
 		configFile.text = ''
 			alias ll = ls -l
 			alias gs = git status
+
+			let $config = {
+				filesize_metric: false
+				table_mode: rounded
+				use_ls_colors: true
+			}
 		'';
 	};
 
@@ -100,5 +106,15 @@
 		tldr
 		nodejs
 	];
+
+# Set default shell to nushell and auto load on start (even on chromebook vm)
+	home.sessionVariables = {
+		SHELL = "${pkgs.nushell}/bin/nu";
+	};
+
+	home.file.".bash_profile".text = ''
+		export SHELL=${pkgs.nushell}/bin/nu
+		exec ${pkgs.nushell}/bin/nu
+	'';
 
 }
