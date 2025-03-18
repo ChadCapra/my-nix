@@ -6,6 +6,7 @@
 		./nixvim/init.nix
 	];
 
+	programs.bat.enable = true;
 	programs.carapace.enable = true;
 	programs.fd.enable = true;
 	programs.fzf.enable = true;
@@ -35,7 +36,6 @@
 		'';
 		extraConfig = ''
 			$env.config.show_banner = false
-			$env.config.edit_mode = 'vi'
 
 			# Set default editor to Neovim
 			$env.EDITOR = "nvim"
