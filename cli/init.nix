@@ -47,6 +47,7 @@
 		enable = true;
 		settings = {
 			add_newline = false;
+			command_timeout = 2000;
 
 # Left side: Directory + Prompt
 			format = "$directory$character";
