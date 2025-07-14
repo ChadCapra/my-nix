@@ -15,6 +15,12 @@ The above installs Nix Package Manager.  Git is now required from here:
 
 `git clone git@github.com:ChadCapra/my-nix.git`
 
-Then finally we run a command to run the flake:
+Next, we need to enable flakes.  First, you need to ensure the nix config directory exists, so run this command:
 
-`[TBD]`
+`mkdir -p ~/.config/nix/`
+
+Now we can enable flakes by "echoing" the following to the nix config
+
+`echo "experimental-features = nix-command flakes" >> ~/.config/nix/nix.conf`
+
+Almost there, we now need to install home-manager
