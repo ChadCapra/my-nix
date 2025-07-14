@@ -60,3 +60,5 @@ home-manager --version
 ```bash
 home-manager switch --flake .#myUser
 ```
+
+Restart/`exit` the terminal and when it restarts, you should see the `nu` shell command line (it is obviously different than before, but you can confirm by typing `ls` and you will get a table instead of the typical text.
