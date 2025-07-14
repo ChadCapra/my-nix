@@ -43,3 +43,9 @@ Can you run this?
 ```bash
 home-manager --version
 ```
+
+## Run the flake/home manager setup for "myUser"
+
+```bash
+home-manager switch --flake .#myUser
+```
