@@ -3,6 +3,7 @@
 {
 
 	home.packages = with pkgs; [
+		firefox
 		inkscape
 		audacity
 		ffmpeg-full
